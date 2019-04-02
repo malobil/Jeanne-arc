@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Script_Player : MonoBehaviour
 {
-    private Rigidbody rb { get { return GetComponent<Rigidbody>(); } }
-    private float f_moveent_speed;
+    private Rigidbody2D rb { get { return GetComponent<Rigidbody2D>(); } }
+    [SerializeField]private float f_movement_speed;
+    [SerializeField]private float f_jump_force;
 
     // Start is called before the first frame update
     void Start()
@@ -17,11 +18,20 @@ public class Script_Player : MonoBehaviour
     void Update()
     {
         Move();
+        if(Input.GetButtonDown("space"))
+        {
+            Jump();
+        }
     }
 
     public void Move()
     {
         float f_horizontal_input = Input.GetAxis("Horizontal");
-        rb.velocity = (transform.forward * f_horizontal_input) * f_moveent_speed * Time.fixedDeltaTime;
+        rb.velocity = new Vector2(f_horizontal_input, rb.velocity.y) * f_movement_speed;
+    }
+
+    public void Jump()
+    {
+        rb.AddForce(transform.up * f_jump_force);
     }
 }
