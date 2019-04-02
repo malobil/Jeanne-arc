@@ -8,11 +8,13 @@ public class Test_Merge : MonoBehaviour
     void Start()
     {
         Debug.Log("ERROR");
+        Debug.Log("Gros chibre de zoulu");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // ojeijsfiefj
+        //fdsff
     }
 }
