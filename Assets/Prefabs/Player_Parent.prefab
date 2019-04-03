@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1554500494063578844}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 1554500494312720940}
   m_Layer: 0
   m_Name: Player_Detection
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 1554500494327291253}
   m_Layer: 0
   m_Name: Jump_Detection
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,8 +180,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   f_movement_speed: 15
   f_jump_force: 25
-  g_weapon_prefab: {fileID: 0}
+  g_weapon_prefab: {fileID: 2786199639413544100, guid: fd8e788a52529094d91ff1d0f4c11da5,
+    type: 3}
   g_player: {fileID: 1554500494574860346}
+  f_weapon_speed: 100
 --- !u!50 &1554500494330234698
 Rigidbody2D:
   serializedVersion: 4
@@ -202,7 +204,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &1554500494574860346
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +218,7 @@ GameObject:
   - component: {fileID: 1040240020}
   m_Layer: 0
   m_Name: Sprite_Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

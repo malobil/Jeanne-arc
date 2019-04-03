@@ -16,6 +16,8 @@ public class Script_Player : MonoBehaviour
     [SerializeField] private GameObject g_weapon_prefab;
     [SerializeField] private GameObject g_player;
 
+    [SerializeField] private float f_weapon_speed;
+
     private void Awake()
     {
         if (Instance == null)
@@ -34,14 +36,14 @@ public class Script_Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("e") && i_double_jump > 0)
+        if (Input.GetKeyDown("space") && i_double_jump > 0)
         {
             Jump();
         }
 
         Move();
 
-        if(!b_is_throw)
+        if(Input.GetKeyDown("e") && !b_is_throw)
         {
             ThrowWeapon();
         }
@@ -77,14 +79,11 @@ public class Script_Player : MonoBehaviour
 
     public void ThrowWeapon()
     {
-        if (g_player.transform.rotation.y == 0 )
-        {
-            
-        }
-
-        else if (g_player.transform.rotation.y == -180)
-        {
-            
-        }
+        Debug.Log("OK");
+        GameObject g_flag_spawned = Instantiate(g_weapon_prefab, g_player.transform.position,Quaternion.identity);
+        g_flag_spawned.GetComponent<Rigidbody2D>().AddForce(transform.right * f_weapon_speed, ForceMode2D.Impulse);
+        b_is_throw = true;
     }
+
+
 }
