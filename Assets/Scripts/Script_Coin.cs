@@ -9,6 +9,7 @@ public class Script_Coin : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            Script_Game_Manager.Instance.AddCoin();
             Destroy(gameObject);
         }
     }

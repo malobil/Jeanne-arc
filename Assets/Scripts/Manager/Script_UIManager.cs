@@ -7,6 +7,8 @@ public class Script_UIManager : MonoBehaviour
 {
     public static Script_UIManager Instance { get; private set; }
 
+    public TextMeshProUGUI text_coin;
+
     private void Awake()
     {
         if(Instance != null)
@@ -19,8 +21,13 @@ public class Script_UIManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        UpdateCoinUI();
+    }
+
     public void UpdateCoinUI()
     {
-
+        text_coin.text = Script_Game_Manager.Instance.i_coin + "<sprite=0>" ;
     }
 }
