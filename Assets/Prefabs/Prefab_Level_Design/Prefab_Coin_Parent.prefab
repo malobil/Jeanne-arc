@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2633857945893400761}
   - component: {fileID: 3052946552215387396}
-  - component: {fileID: 427982883953044757}
+  - component: {fileID: 1359424703773854942}
+  - component: {fileID: 8272713925683449373}
   m_Layer: 0
   m_Name: Coin_Sprite
   m_TagString: Untagged
@@ -69,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d1644b21d9c5da54aad93d152b465756, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4eaa083be8d9fc443b05bfd440e7c4de, type: 3}
   m_Color: {r: 0.9577879, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -80,8 +81,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &427982883953044757
-PolygonCollider2D:
+--- !u!114 &1359424703773854942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359424703773854941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd3b509375b2aad4aaa31969154c5f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &8272713925683449373
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -90,27 +103,12 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.5}
-      - {x: -0.43301272, y: 0.24999999}
-      - {x: -0.4330127, y: -0.25000003}
-      - {x: 0.00000004371139, y: -0.5}
-      - {x: 0.43301272, y: -0.24999996}
-      - {x: 0.43301272, y: 0.24999996}
+  serializedVersion: 2
+  m_Radius: 0.29999998
 --- !u!1 &2777269853597761316
 GameObject:
   m_ObjectHideFlags: 0
