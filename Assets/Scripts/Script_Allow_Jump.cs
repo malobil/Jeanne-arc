@@ -8,7 +8,7 @@ public class Script_Allow_Jump : MonoBehaviour
     {
         if(other.CompareTag("Ground"))
         {
-            //Script_Player.Instance.ResetJump();
+            Script_Player.Instance.ResetJump();
         }
     }
 }

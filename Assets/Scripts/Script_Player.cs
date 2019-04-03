@@ -11,6 +11,17 @@ public class Script_Player : MonoBehaviour
     [SerializeField]private float f_jump_force;
     private int i_double_jump = 2;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
 
@@ -18,30 +29,35 @@ public class Script_Player : MonoBehaviour
 
     void Update()
     {
-        Move();
-
-        if(Input.GetKeyDown("e"))
+        if (Input.GetKeyDown("e") && i_double_jump > 0)
         {
             Jump();
         }
+
+        Move();
     }
 
     private void Move()
     {
-        float f_horizontal_input = Input.GetAxis("Horizontal");
+        float f_horizontal_input = Input.GetAxis("Horizontal") * f_movement_speed;
 
-        rb.velocity = new Vector2(f_horizontal_input, rb.velocity.y) * f_movement_speed;
+        rb.velocity = new Vector2(f_horizontal_input, rb.velocity.y);
     }
 
     private void Jump()
     {
-        rb.AddForce(transform.up * f_jump_force);
-        Debug.Log("Jump");
-        //i_double_jump--;
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+        rb.AddForce(transform.up * f_jump_force, ForceMode2D.Impulse);
+        i_double_jump--;
     }
 
     public void ResetJump()
     {
         i_double_jump = 2;
+    }
+
+    public void ThrowWeapon()
+    {
+
     }
 }
