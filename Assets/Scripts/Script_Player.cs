@@ -11,6 +11,11 @@ public class Script_Player : MonoBehaviour
     [SerializeField]private float f_jump_force;
     private int i_double_jump = 2;
 
+
+    private bool b_is_throw;
+    [SerializeField] private GameObject g_weapon_prefab;
+    [SerializeField] private GameObject g_player;
+
     private void Awake()
     {
         if (Instance == null)
@@ -35,11 +40,25 @@ public class Script_Player : MonoBehaviour
         }
 
         Move();
+
+        if(!b_is_throw)
+        {
+            ThrowWeapon();
+        }
     }
 
     private void Move()
     {
         float f_horizontal_input = Input.GetAxis("Horizontal") * f_movement_speed;
+
+        if(f_horizontal_input > 0)
+        {
+            g_player.transform.rotation = new Quaternion(0, 0, 0, 0);
+        }
+        else if(f_horizontal_input < 0)
+        {
+            g_player.transform.rotation = new Quaternion(0, -180, 0, 0);
+        }
 
         rb.velocity = new Vector2(f_horizontal_input, rb.velocity.y);
     }
@@ -58,6 +77,14 @@ public class Script_Player : MonoBehaviour
 
     public void ThrowWeapon()
     {
+        if (g_player.transform.rotation.y == 0 )
+        {
+            
+        }
 
+        else if (g_player.transform.rotation.y == -180)
+        {
+            
+        }
     }
 }
