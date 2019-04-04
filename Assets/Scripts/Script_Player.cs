@@ -88,6 +88,4 @@ public class Script_Player : MonoBehaviour
     {
         b_is_throw = false;
     }
-
-
 }
