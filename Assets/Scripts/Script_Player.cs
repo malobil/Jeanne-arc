@@ -79,10 +79,14 @@ public class Script_Player : MonoBehaviour
 
     public void ThrowWeapon()
     {
-        Debug.Log("OK");
         GameObject g_flag_spawned = Instantiate(g_weapon_prefab, g_player.transform.position,Quaternion.identity);
         g_flag_spawned.GetComponent<Rigidbody2D>().AddForce(transform.right * f_weapon_speed, ForceMode2D.Impulse);
         b_is_throw = true;
+    }
+
+    public void AllowThrowWeapon()
+    {
+        b_is_throw = false;
     }
 
 

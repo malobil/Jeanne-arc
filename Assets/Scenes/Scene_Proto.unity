@@ -769,6 +769,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Parent
       objectReference: {fileID: 0}
+    - target: {fileID: 1554500494330234696, guid: 7a0a69936409bdf4b90329a5301a54e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1554500494330234699, guid: 7a0a69936409bdf4b90329a5301a54e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -828,6 +833,26 @@ PrefabInstance:
         type: 3}
       propertyPath: f_weapon_speed
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554500494574860346, guid: 7a0a69936409bdf4b90329a5301a54e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554500494063578845, guid: 7a0a69936409bdf4b90329a5301a54e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554500494312720941, guid: 7a0a69936409bdf4b90329a5301a54e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554500494327291251, guid: 7a0a69936409bdf4b90329a5301a54e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a0a69936409bdf4b90329a5301a54e1, type: 3}
