@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Script_Weapon : MonoBehaviour
+public class Script_Weapon_Wall_Detection : MonoBehaviour
 {
     private Rigidbody2D rb { get { return GetComponent<Rigidbody2D>(); } }
 
@@ -17,23 +17,15 @@ public class Script_Weapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Ground"))
+        if(other.CompareTag("Wall"))
         {
             rb.Sleep();
         }
 
-        if(other.CompareTag(""))
+        if (other.CompareTag("Outoflimit"))
         {
             Script_Player.Instance.AllowThrowWeapon();
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            Script_Player.Instance.AllowThrowWeapon();
+            Destroy(transform.parent.gameObject);
         }
     }
 }
