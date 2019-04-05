@@ -38,6 +38,16 @@ public class Script_Game_Manager : MonoBehaviour
         Script_UIManager.Instance.UpdateCoinUI();
     }
 
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Scene_Kevin");
+    }
+    
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     public void GameOver()
     {
         if(b_game_run)
