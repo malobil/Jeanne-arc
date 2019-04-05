@@ -38,7 +38,7 @@ public class Script_Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("space") && i_double_jump > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && i_double_jump > 0)
         {
             Jump();
         }
@@ -50,6 +50,17 @@ public class Script_Player : MonoBehaviour
             ThrowWeapon();
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Script_Game_Manager.Instance.ReturnGameState())
+            {
+                Script_Game_Manager.Instance.SetTimePause();
+            }
+            else if (!Script_Game_Manager.Instance.ReturnGameState())
+            {
+                Script_Game_Manager.Instance.SetTimeResume();
+            }
+        }
     }
 
     private void Move()

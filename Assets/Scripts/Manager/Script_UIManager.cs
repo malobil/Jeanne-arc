@@ -10,6 +10,7 @@ public class Script_UIManager : MonoBehaviour
     public TextMeshProUGUI text_coin;
     [SerializeField] private GameObject g_game_over_screen;
     [SerializeField] private GameObject g_pause_screen;
+    [SerializeField] private GameObject g_victory_screen;
 
     private void Awake()
     {
@@ -51,5 +52,15 @@ public class Script_UIManager : MonoBehaviour
     public void UnShowPauseScreen()
     {
         g_game_over_screen.SetActive(false);
+    }
+
+    public void ShowVictoryScreen()
+    {
+        g_victory_screen.SetActive(true);
+    }
+
+    public void UnShowVictoryScreen()
+    {
+        g_victory_screen.SetActive(false);
     }
 }

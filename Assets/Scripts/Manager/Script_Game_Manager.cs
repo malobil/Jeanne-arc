@@ -42,9 +42,27 @@ public class Script_Game_Manager : MonoBehaviour
     {
         if(b_game_run)
         {
-            //Script_UIManager.Instance.ShowGameOverScreen();
+            Script_UIManager.Instance.ShowGameOverScreen();
             Time.timeScale = 0.00001f;
             b_game_run = false;
+        }
+    }
+
+    public void SetTimePause()
+    {
+        if(b_game_run)
+        {
+            Time.timeScale = 0.0001f;
+            b_game_run = false;
+        }
+    }
+
+    public void SetTimeResume()
+    {
+        if(!b_game_run)
+        {
+            Time.timeScale = 1f;
+            b_game_run = true;
         }
     }
 
@@ -53,10 +71,36 @@ public class Script_Game_Manager : MonoBehaviour
         if(!b_game_run)
         {
             Script_UIManager.Instance.UnShowGameOverScreen();
-            Time.timeScale = 1f;
-            b_game_run = true;
+            SetTimePause();
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
+        }
+    }
+
+    public void Pause()
+    {
+        if(b_game_run)
+        {
+            SetTimePause();
+            Script_UIManager.Instance.ShowPauseScreen();
+        }
+    }
+
+    public void Resume()
+    {
+        if(!b_game_run)
+        {
+            SetTimeResume();
+            Script_UIManager.Instance.UnShowPauseScreen();
+        }
+    }
+
+    public void Victory()
+    {
+        if(b_game_run)
+        {
+            SetTimePause();
+            Script_UIManager.Instance.ShowVictoryScreen();
         }
     }
 
@@ -64,8 +108,12 @@ public class Script_Game_Manager : MonoBehaviour
     {
         if(!b_game_run)
         {
-
+            SceneManager.LoadScene("Scene_Main_Menu");
         }
     }
 
+    public bool ReturnGameState()
+    {
+        return b_game_run;
+    }
 }
