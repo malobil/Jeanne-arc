@@ -24,7 +24,7 @@ public class Script_Game_Manager : MonoBehaviour
 
     void Start()
     {
-        
+        b_game_run = true;
     }
 
     void Update()
@@ -42,7 +42,7 @@ public class Script_Game_Manager : MonoBehaviour
     {
         if(b_game_run)
         {
-            Script_UIManager.Instance.ShowGameOverScreen();
+            //Script_UIManager.Instance.ShowGameOverScreen();
             Time.timeScale = 0.00001f;
             b_game_run = false;
         }

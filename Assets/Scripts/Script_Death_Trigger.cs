@@ -22,7 +22,7 @@ public class Script_Death_Trigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-    if(other.CompareTag("Player"))
+        if(other.CompareTag("Player"))
         {
             Script_Game_Manager.Instance.GameOver();
         }

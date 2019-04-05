@@ -19,7 +19,8 @@ public class Script_Weapon_Wall_Detection : MonoBehaviour
     {
         if(other.CompareTag("Wall"))
         {
-            rb.Sleep();
+            rb.velocity = new Vector2(0, 0);
+            transform.parent.gameObject.layer = 0;
         }
 
         if (other.CompareTag("Outoflimit"))
