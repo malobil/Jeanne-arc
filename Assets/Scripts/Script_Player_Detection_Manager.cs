@@ -10,5 +10,10 @@ public class Script_Player_Detection_Manager : MonoBehaviour
         {
             Script_Player.Instance.ResetJump();
         }
+
+        if(other.CompareTag("SpecialGround"))
+        {
+            other.GetComponent<Collider2D>().isTrigger = false;
+        }
     }
 }
