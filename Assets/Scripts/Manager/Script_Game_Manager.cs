@@ -53,7 +53,7 @@ public class Script_Game_Manager : MonoBehaviour
         if(b_game_run)
         {
             Script_UIManager.Instance.ShowGameOverScreen();
-            Time.timeScale = 0.00001f;
+            Time.timeScale = 0f;
             b_game_run = false;
         }
     }
