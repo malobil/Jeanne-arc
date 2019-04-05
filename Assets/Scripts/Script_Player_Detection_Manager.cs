@@ -6,23 +6,9 @@ public class Script_Player_Detection_Manager : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Ground"))
+        if(other.GetComponent<Collider2D>() && !other.GetComponent<Collider2D>().isTrigger)
         {
             Script_Player.Instance.ResetJump();
         }
-
-        if(other.CompareTag("Weapon"))
-        {
-            other.gameObject.layer = 0;
-        }
     }
-
-    //private void OnTriggerExit2D(Collider2D other)
-    //{
-    //    if(other.CompareTag("Weapon"))
-    //    {
-    //        Destroy(other);
-    //        Script_Player.Instance.AllowThrowWeapon();
-    //    }
-    //}
 }

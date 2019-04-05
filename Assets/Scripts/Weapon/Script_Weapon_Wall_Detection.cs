@@ -21,6 +21,7 @@ public class Script_Weapon_Wall_Detection : MonoBehaviour
         if(other.CompareTag("Wall"))
         {
             rb.bodyType = RigidbodyType2D.Static;
+            transform.parent.gameObject.layer = 0;
         }
     }
 }
