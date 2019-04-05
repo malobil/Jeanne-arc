@@ -12,12 +12,11 @@ public class Script_Player : MonoBehaviour
     [SerializeField] private float f_x_clamp_position = 4.61f;
     private int i_double_jump = 2;
 
-
-    private bool b_is_throw;
     [SerializeField] private GameObject g_weapon_prefab;
     [SerializeField] private GameObject g_player;
 
     [SerializeField] private float f_weapon_speed;
+    private GameObject g_weapon_spawned;
 
     private void Awake()
     {
@@ -44,10 +43,11 @@ public class Script_Player : MonoBehaviour
 
         Move();
 
-        if(Input.GetKeyDown("e") && !b_is_throw)
+        if(Input.GetKeyDown("e"))
         {
             ThrowWeapon();
         }
+
     }
 
     private void Move()
@@ -56,11 +56,13 @@ public class Script_Player : MonoBehaviour
 
         if(f_horizontal_input > 0)
         {
-            g_player.transform.rotation = new Quaternion(0, 0, 0, 0);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+            Debug.Log("Droite");
         }
         else if(f_horizontal_input < 0)
         {
-            g_player.transform.rotation = new Quaternion(0, -180, 0, 0);
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+            Debug.Log("Gauche");
         }
 
         rb.velocity = new Vector2(f_horizontal_input, rb.velocity.y);
@@ -82,13 +84,12 @@ public class Script_Player : MonoBehaviour
 
     public void ThrowWeapon()
     {
-        GameObject g_flag_spawned = Instantiate(g_weapon_prefab, g_player.transform.position,Quaternion.identity);
-        g_flag_spawned.GetComponent<Rigidbody2D>().AddForce(transform.right * f_weapon_speed, ForceMode2D.Impulse);
-        b_is_throw = true;
-    }
+        if(g_weapon_spawned != null)
+        {
+            Destroy(g_weapon_spawned);
+        }
 
-    public void AllowThrowWeapon()
-    {
-        b_is_throw = false;
+        g_weapon_spawned = Instantiate(g_weapon_prefab, g_player.transform.position, Quaternion.Euler(0,-transform.rotation.y,0));
+        g_weapon_spawned.GetComponent<Rigidbody2D>().AddForce(transform.right * f_weapon_speed, ForceMode2D.Impulse);
     }
 }

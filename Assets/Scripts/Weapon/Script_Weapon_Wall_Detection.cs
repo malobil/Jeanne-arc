@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Script_Weapon_Wall_Detection : MonoBehaviour
 {
-    private Rigidbody2D rb { get { return GetComponent<Rigidbody2D>(); } }
+    private Rigidbody2D rb { get { return GetComponentInParent<Rigidbody2D>(); } }
 
     void Start()
     {
+
     }
 
     void Update()
@@ -19,14 +20,8 @@ public class Script_Weapon_Wall_Detection : MonoBehaviour
     {
         if(other.CompareTag("Wall"))
         {
+            rb.bodyType = RigidbodyType2D.Static;
             rb.velocity = new Vector2(0, 0);
-            transform.parent.gameObject.layer = 0;
-        }
-
-        if (other.CompareTag("Outoflimit"))
-        {
-            Script_Player.Instance.AllowThrowWeapon();
-            Destroy(transform.parent.gameObject);
         }
     }
 }
