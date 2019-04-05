@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Script_Player_Detection_Manager : MonoBehaviour
+public class Fire_Trigger : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Ground"))
+        if(other.CompareTag("Player"))
         {
-            Script_Player.Instance.ResetJump();
+            Script_Death_Trigger.Instance.StartMoving();
         }
     }
 }

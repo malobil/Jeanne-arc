@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4443388295618875641}
   - component: {fileID: 7738331398245162555}
   - component: {fileID: 6656547033638697425}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Prefab_Weapon
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 5152703305631990194}
   - component: {fileID: 4191042327792673104}
   - component: {fileID: 9072566370571524895}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Weapon_Wall_Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 3886419444090145374}
   - component: {fileID: 6258696611321378729}
   - component: {fileID: 6777518290040568368}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Weapon_Player_Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
