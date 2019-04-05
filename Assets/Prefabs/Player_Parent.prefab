@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554423712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.42, z: 0}
+  m_LocalPosition: {x: 0, y: 2.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1554500494330234699}
@@ -211,6 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   f_movement_speed: 5
   f_jump_force: 20
+  f_x_clamp_position: 4.61
   g_weapon_prefab: {fileID: 2786199639413544100, guid: fd8e788a52529094d91ff1d0f4c11da5,
     type: 3}
   g_player: {fileID: 1554500494574860346}

@@ -9,6 +9,7 @@ public class Script_Player : MonoBehaviour
     private Rigidbody2D rb { get { return GetComponent<Rigidbody2D>(); } }
     [SerializeField]private float f_movement_speed;
     [SerializeField]private float f_jump_force;
+    [SerializeField] private float f_x_clamp_position = 4.61f;
     private int i_double_jump = 2;
 
 
@@ -63,6 +64,8 @@ public class Script_Player : MonoBehaviour
         }
 
         rb.velocity = new Vector2(f_horizontal_input, rb.velocity.y);
+
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -f_x_clamp_position, f_x_clamp_position), transform.position.y);
     }
 
     private void Jump()
