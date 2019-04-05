@@ -21,7 +21,6 @@ public class Script_Weapon_Wall_Detection : MonoBehaviour
         if(other.CompareTag("Wall"))
         {
             rb.bodyType = RigidbodyType2D.Static;
-            rb.velocity = new Vector2(0, 0);
         }
     }
 }

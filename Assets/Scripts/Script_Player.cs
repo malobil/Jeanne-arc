@@ -94,15 +94,18 @@ public class Script_Player : MonoBehaviour
         g_weapon_spawned = Instantiate(g_weapon_prefab, g_player.transform.position, Quaternion.identity);
         g_weapon_spawned.GetComponent<Rigidbody2D>().AddForce(transform.right * f_weapon_speed, ForceMode2D.Impulse);
 
-        if (transform.localRotation == Quaternion.Euler(0, 0, 0))
+        if (transform.localRotation == Quaternion.Euler(0, 180, 0))
         {
-            g_weapon_spawned.transform.rotation = Quaternion.Euler(0, 0, 0);
+            g_weapon_spawned.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (transform.localRotation == Quaternion.Euler(0, 180, 0))
+        else if(transform.localRotation == Quaternion.Euler(0, 0, 0))
         {
-            g_weapon_spawned.transform.rotation = Quaternion.Euler(0, 180, 0);
+            g_weapon_spawned.transform.localRotation = Quaternion.Euler(0, 180, 0);
+
         }
 
+
+        Debug.Log(g_weapon_spawned.transform.localEulerAngles);
         b_can_throw_weapon = false;
         StartCoroutine("WaitBeforeThrowWeapon");
     }
