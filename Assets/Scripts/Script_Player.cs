@@ -7,16 +7,18 @@ public class Script_Player : MonoBehaviour
     public static Script_Player Instance { get; private set; }
 
     private Rigidbody2D rb { get { return GetComponent<Rigidbody2D>(); } }
-    [SerializeField]private float f_movement_speed;
-    [SerializeField]private float f_jump_force;
+    [SerializeField] private float f_movement_speed;
+    [SerializeField] private float f_jump_force;
     [SerializeField] private float f_x_clamp_position = 4.61f;
     private int i_double_jump = 2;
 
     [SerializeField] private GameObject g_weapon_prefab;
     [SerializeField] private GameObject g_player;
 
+
     [SerializeField] private float f_weapon_speed;
     private GameObject g_weapon_spawned;
+    private bool b_can_throw_weapon = true;
 
     private void Awake()
     {
@@ -43,7 +45,7 @@ public class Script_Player : MonoBehaviour
 
         Move();
 
-        if(Input.GetKeyDown("e"))
+        if (Input.GetKeyDown("e") && b_can_throw_weapon)
         {
             ThrowWeapon();
         }
@@ -54,12 +56,12 @@ public class Script_Player : MonoBehaviour
     {
         float f_horizontal_input = Input.GetAxis("Horizontal") * f_movement_speed;
 
-        if(f_horizontal_input > 0)
+        if (f_horizontal_input > 0)
         {
             transform.localRotation = Quaternion.Euler(0, 0, 0);
             Debug.Log("Droite");
         }
-        else if(f_horizontal_input < 0)
+        else if (f_horizontal_input < 0)
         {
             transform.localRotation = Quaternion.Euler(0, 180, 0);
             Debug.Log("Gauche");
@@ -84,12 +86,30 @@ public class Script_Player : MonoBehaviour
 
     public void ThrowWeapon()
     {
-        if(g_weapon_spawned != null)
+        if (g_weapon_spawned != null)
         {
             Destroy(g_weapon_spawned);
         }
 
-        g_weapon_spawned = Instantiate(g_weapon_prefab, g_player.transform.position, Quaternion.Euler(0,-transform.rotation.y,0));
+        g_weapon_spawned = Instantiate(g_weapon_prefab, g_player.transform.position, Quaternion.identity);
         g_weapon_spawned.GetComponent<Rigidbody2D>().AddForce(transform.right * f_weapon_speed, ForceMode2D.Impulse);
+
+        if (transform.localRotation == Quaternion.Euler(0, 0, 0))
+        {
+            g_weapon_spawned.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (transform.localRotation == Quaternion.Euler(0, 180, 0))
+        {
+            g_weapon_spawned.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+
+        b_can_throw_weapon = false;
+        StartCoroutine("WaitBeforeThrowWeapon");
+    }
+
+    IEnumerator WaitBeforeThrowWeapon()
+    {
+        yield return new WaitForSeconds(0.5f);
+        b_can_throw_weapon = true;
     }
 }
